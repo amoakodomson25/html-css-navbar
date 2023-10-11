@@ -1,0 +1,265 @@
+<!--html--> 
+        <div class="nav">
+          <ul id="menu">
+            <li><a href="">HOME</a></li>
+            <li>
+              <a href="">HTML & CSS <i class="fa-solid fa-angle-down"></i></a>
+              <ul>
+                <li><a href="">login forms</a></li>
+                <li><a href="">Apartment Finder</a></li>
+                <li><a href="">images</a></li>
+                <li>
+                  <a href=""
+                    >More
+                    <i class="fa-solid fa-angle-right"></i>
+                  </a>
+                  <ul>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="">JavaScript<i class="fa-solid fa-angle-down"></i></a>
+              <ul>
+                <li><a href="">login forms</a></li>
+                <li><a href="">Apartment Finder</a></li>
+                <li><a href="">images</a></li>
+              </ul>
+            </li>
+            <li><a href="">Python</a></li>
+            <li><a href="">Others</a></li>
+            <li><a href="">Contact us</a></li>
+            <li id="search-btn">
+              <a onclick="toggleSearch()"
+                ><i class="fa-solid fa-magnifying-glass"></i
+              ></a>
+              <ul class="search-drop">
+                <p>Looking for something?</p>
+                <form action="#">
+                  <input type="text" />
+                  <input type="submit" value="Search" />
+                </form>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+
+<!--css--> 
+<style>
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0px 100px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fffffff0;
+  box-shadow: #00000010 0px 0px 10px 1px;
+  z-index: 1000;
+  transition: 0.2s ease-in;
+}
+.navbar.sticky {
+  height: 50px;
+}
+.navbar .logo {
+  width: 45%;
+  font-size: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.navbar .nav {
+  width: 70%;
+  height: 100%;
+}
+.navbar .nav ul {
+  height: 100%;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .nav ul li {
+  margin: 0px;
+  position: relative;
+  height: 100%;
+  transition: 0.1s;
+}
+.navbar .nav ul li a {
+  height: 100%;
+  padding: 0 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: black;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  transition: all 0.075s ease-in;
+  cursor: pointer;
+}
+.navbar .nav ul li a:hover {
+  color: #0089ec;
+}
+.navbar .nav ul li a i {
+  padding-top: 2px;
+  margin-left: 2px;
+}
+
+.navbar .nav ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+.navbar .nav ul li:nth-child(7):hover > ul {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+.navbar .nav ul li:nth-child(7).active a {
+  color: #0089ec;
+}
+
+.navbar .nav ul li:nth-child(7).active > ul {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.navbar .nav ul li ul {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.075s ease-in;
+  position: absolute;
+  display: block;
+  height: max-content;
+  width: 190px;
+  padding: 15px 0;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  box-shadow: #00000005 0px 0px 5px 2px;
+  z-index: 100000;
+}
+.navbar .nav ul li ul.search-drop {
+  right: 0;
+  width: 400px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+}
+.navbar .nav ul li ul.search-drop p {
+  padding: 5px 20px;
+  width: 100%;
+}
+
+.navbar .nav ul li ul.search-drop form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.navbar .nav ul li ul.search-drop::before {
+  right: 0;
+  width: 80px;
+}
+.search-drop input {
+  border: 0;
+  padding: 8px;
+}
+
+.search-drop input[type="text"] {
+  width: 270px;
+  background: #00000005;
+  margin-right: 5px;
+  outline: 1px solid #00000015;
+}
+.search-drop input:focus-visible {
+  outline: 1px solid #0089ec;
+}
+.search-drop input[type="submit"] {
+  width: 80px;
+  background-color: #0089ec;
+  color: #fff;
+  outline: 1px solid #0089ec;
+  transition: 0.075s ease-in;
+  cursor: pointer;
+}
+.search-drop input[type="submit"]:hover {
+  background-color: #00518a;
+  outline: 1px solid #00518a;
+}
+
+.navbar .nav ul li ul::before {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background-color: #0089ec;
+  position: absolute;
+  top: -3px;
+}
+
+.navbar .nav ul li ul li {
+  width: 100%;
+  height: fit-content;
+  padding: 0px 10px 1px 10px;
+  letter-spacing: 0;
+}
+.navbar .nav ul li ul li a {
+  width: 100%;
+  margin: 0;
+  padding: 4px 0;
+  font-weight: 500;
+  font-size: 14px;
+  justify-content: flex-start;
+  text-transform: capitalize;
+}
+.navbar .nav ul li ul li a:hover {
+  color: #0089ec;
+}
+
+.navbar .nav ul li ul li ul {
+  position: absolute;
+  top: 0px;
+  left: 189px;
+  box-shadow: #00000005 0px 0px 5px 2px;
+}
+.navbar .nav ul li ul li ul::before {
+  content: "";
+  display: none;
+}
+.navbar .nav ul li ul li a i {
+  font-size: 12px;
+  font-weight: 800;
+  margin-left: 125px;
+}
+</style>
+
+<!--js--> 
+    <script>
+      var navbar = document.getElementById("navbar");
+      var menu = document.getElementById("menu");
+
+      window.onscroll = function () {
+        if (window.pageYOffset >= menu.offsetTop + 100) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      };
+    </script>
+    <script>
+      searchbtn = document.getElementById("search-btn");
+      function toggleSearch() {
+        searchbtn.classList.toggle("active");
+      }
+    </script>
